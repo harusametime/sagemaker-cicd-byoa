@@ -5,11 +5,11 @@ version: 0.2
 env:
   variables:
     JOB_NAME: train-$CODEBUILD_START_TIME
-    ENTRY_POINT: './python/train.py'
-    IMAGE: '763104351884.dkr.ecr.us-west-2.amazonaws.com/tensorflow-training:1.14-gpu-py3'
-    INPUT_PATH: ''
-    ROLE_ARN: 'arn:aws:iam::373011628954:role/sagemakerfull'
-    OUTPUT_PATH: 's3://sagemaker-us-west-2-373011628954/codebuild/tensorflow'
+    ENTRY_POINT: "./python/train.py"
+    IMAGE: "763104351884.dkr.ecr.us-west-2.amazonaws.com/tensorflow-training:1.14-gpu-py3"
+    INPUT_PATH: ""
+    ROLE_ARN: "arn:aws:iam::373011628954:role/sagemakerfull"
+    OUTPUT_PATH: "s3://sagemaker-us-west-2-373011628954/codebuild/tensorflow"
     # FRAMEWORK_VERSION: '1.13.1'
     # CPU_FRAMEWORK_BINARY: 'https://s3-us-west-2.amazonaws.com/tensorflow-aws/1.13/AmazonLinux/cpu/latest-patch-latest-patch/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl'
     # CPU_PY_VERSION: '3'
@@ -28,4 +28,4 @@ phases:
 
   build:
     commands:
-      - aws sagemaker create-training-job --training-job-name $JOB_NAME --algorithm-specification {"TrainingImage":"763104351884.dkr.ecr.us-west-2.amazonaws.com/tensorflow-training:1.14-gpu-py3","TrainingInputMode":"File"} --role-arn $ROLE_ARN --output-data-config {"S3OutputPath":$OUTPUT_PATH} --resource-config  {"InstanceCount":1,"InstanceType":"ml.m4.xlarge","VolumeSizeInGB":20} --stopping-condition {}
+      - aws sagemaker create-training-job --training-job-name $JOB_NAME --algorithm-specification TrainingImage=$IMAGE,TrainingInputMode=File" --role-arn $ROLE_ARN --output-data-config S3OutputPath=$OUTPUT_PATH --resource-config  InstanceCount=1,InstanceType="ml.m4.xlarge",VolumeSizeInGB=20 --stopping-condition
