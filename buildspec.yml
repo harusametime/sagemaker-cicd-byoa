@@ -1,0 +1,28 @@
+version: 0.2
+
+
+
+env:
+  variables:
+    JOB_NAME: train-$(date +%Y-%m-%d)
+    ENTRY_POINT: './python/train.py'
+    IMAGE: '763104351884.dkr.ecr.us-west-2.amazonaws.com/tensorflow-training:1.14-gpu-py3'
+    # FRAMEWORK_VERSION: '1.13.1'
+    # CPU_FRAMEWORK_BINARY: 'https://s3-us-west-2.amazonaws.com/tensorflow-aws/1.13/AmazonLinux/cpu/latest-patch-latest-patch/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl'
+    # CPU_PY_VERSION: '3'
+    # GPU_FRAMEWORK_BINARY: 'https://s3-us-west-2.amazonaws.com/tensorflow-aws/1.13/AmazonLinux/gpu/latest-patch-latest-patch/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl'
+    # GPU_PY_VERSION: '3'
+    # ECR_REPO: 'sagemaker-test'
+    # GITHUB_REPO: 'sagemaker-tensorflow-container'
+    # SETUP_FILE: 'setup_cmds.sh'
+    # SETUP_CMDS: '#!/bin/bash\npip install --upgrade pip\npip install -U -e .\npip install -U -e .[test]'
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+      python: 3.7
+
+  build:
+    commands:
+      - aws sagemaker create-training-job --training-job-name $JOB_NAME
