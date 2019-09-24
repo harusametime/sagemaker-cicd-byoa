@@ -26,5 +26,5 @@ phases:
 
   build:
     commands:
-      - pip install sagemaker tensorflow
+      - pip install sagemaker tensorflow docker-compose
       - python train_local.py --entry_point $ENTRY_POINT --src_dir $SOURCE_DIR --input_s3 $INPUT_PATH
