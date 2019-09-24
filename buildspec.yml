@@ -27,5 +27,8 @@ phases:
 
   build:
     commands:
+      - echo aaa
+      - echo  $CODEBUILD_SOURCE_REPO_URL
+      - echo  $CODEBUILD_RESOLVED_SOURCE_VERSION
       - pip install sagemaker tensorflow
       - python train_local.py --entry_point $ENTRY_POINT --src_dir $SOURCE_DIR --input_s3 $INPUT_PATH --repo $CODEBUILD_SOURCE_REPO_URL --version $CODEBUILD_RESOLVED_SOURCE_VERSION
