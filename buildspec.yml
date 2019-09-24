@@ -4,7 +4,7 @@ version: 0.2
 
 env:
   variables:
-    JOB_NAME: train-$(date +%Y-%m-%d)
+    JOB_NAME: train-$CODEBUILD_START_TIME
     ENTRY_POINT: './python/train.py'
     IMAGE: '763104351884.dkr.ecr.us-west-2.amazonaws.com/tensorflow-training:1.14-gpu-py3'
     INPUT_PATH: ''
