@@ -5,9 +5,9 @@ version: 0.2
 env:
   variables:
     JOB_NAME: train-$CODEBUILD_START_TIME
-    ENTRY_POINT: "./python/train.py"
-    IMAGE: "763104351884.dkr.ecr.us-west-2.amazonaws.com/tensorflow-training:1.14-gpu-py3"
-    INPUT_PATH: ""
+    ENTRY_POINT: "mnist.py"
+    SOURCE_DIR: "src"
+    INPUT_PATH: "s3://sagemaker-us-west-2-373011628954/data/DEMO-mnist"
     ROLE_ARN: "arn:aws:iam::373011628954:role/sagemakerfull"
     OUTPUT_PATH: "s3://sagemaker-us-west-2-373011628954/codebuild/tensorflow"
     # FRAMEWORK_VERSION: '1.13.1'
@@ -28,4 +28,5 @@ phases:
 
   build:
     commands:
-      - aws sagemaker create-training-job --training-job-name $JOB_NAME --algorithm-specification TrainingImage=$IMAGE,TrainingInputMode="File" --role-arn $ROLE_ARN --output-data-config S3OutputPath=$OUTPUT_PATH --resource-config  InstanceCount=1,InstanceType="ml.m4.xlarge",VolumeSizeInGB=20 --stopping-condition MaxRuntimeInSeconds=3600
+      - pip install sagemaker
+      - python train_local.py entry_point=$ENTRY_POINT src_dir=$SOURCE_DIR input_s3=$INPUT_PATH
