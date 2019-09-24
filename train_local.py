@@ -2,6 +2,11 @@ import sagemaker
 from sagemaker import get_execution_role
 import argparse
 
+
+    Error Code here
+
+    
+    
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='training script')
     parser.add_argument('--entry_point', type=str)
@@ -25,5 +30,3 @@ if __name__ == '__main__':
                                  train_instance_count=1,
                                  train_instance_type='local')
     mnist_estimator.fit(inputs)
-
-    Error Code here
