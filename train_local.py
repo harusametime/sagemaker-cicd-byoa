@@ -8,6 +8,7 @@ if __name__ == '__main__':
     parser.add_argument('--entry_point', type=str)
     parser.add_argument('--src_dir', type=str)
     parser.add_argument('--input_s3', type=str)
+    parser.add_argument('--repo', type=str)
     parser.add_argument('--version', type=str)
 
 
@@ -16,7 +17,9 @@ if __name__ == '__main__':
     entry_point = args.entry_point
     src_dir = args.src_dir
     inputs = args.input_s3
+    repo = args.repo
     version = args.version
+    code_url = repo + '/tree/' + version
 
     from sagemaker.tensorflow import TensorFlow
 
@@ -27,7 +30,8 @@ if __name__ == '__main__':
                                  training_steps=100,
                                  evaluation_steps=10,
                                  train_instance_count=1,
-                                 tags={"version": version},
+                                 metric_definitions=[{'Name': 'loss', 'Regex': 'loss = ([0-9\\.]+)'}
+                                 tags=[{"code_url": code_url}],
                                  train_instance_type='ml.m4.xlarge')
 
     mnist_estimator.fit(inputs)
