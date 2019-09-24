@@ -1,14 +1,12 @@
 version: 0.2
 
-
-
 env:
   variables:
     JOB_NAME: train-$CODEBUILD_START_TIME
     ENTRY_POINT: "mnist.py"
     SOURCE_DIR: "src"
     INPUT_PATH: "s3://sagemaker-us-west-2-373011628954/data/DEMO-mnist"
-    ROLE_ARN: "arn:aws:iam::373011628954:role/sagemakerfull"
+    # ROLE_ARN: "arn:aws:iam::373011628954:role/sagemakerfull"
     OUTPUT_PATH: "s3://sagemaker-us-west-2-373011628954/codebuild/tensorflow"
     # FRAMEWORK_VERSION: '1.13.1'
     # CPU_FRAMEWORK_BINARY: 'https://s3-us-west-2.amazonaws.com/tensorflow-aws/1.13/AmazonLinux/cpu/latest-patch-latest-patch/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl'
