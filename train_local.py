@@ -4,9 +4,9 @@ import argparse
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='training script')
-    parser.add_argument('entry_point', type=str)
-    parser.add_argument('src_dir', type=str)
-    parser.add_argument('input_s3', type=str)
+    parser.add_argument('--entry_point', type=str)
+    parser.add_argument('--src_dir', type=str)
+    parser.add_argument('--input_s3', type=str)
 
     args = parser.parse_args()
 
