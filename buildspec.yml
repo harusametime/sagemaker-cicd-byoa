@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     # SOURCE_VERSION: $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
-    # REPO_NAME: $(echo $CODEBUILD_SOURCE_REPO_URL)
+    REPO_NAME: "https://github.com/harusametime/sagemaker-cicd-byoa"
     ENTRY_POINT: "mnist.py"
     SOURCE_DIR: "src"
     INPUT_PATH: "s3://sagemaker-us-west-2-373011628954/data/DEMO-mnist"
@@ -27,8 +27,5 @@ phases:
 
   build:
     commands:
-      - echo aaa
-      - echo  $CODEBUILD_SOURCE_REPO_URL
-      - echo  $CODEBUILD_RESOLVED_SOURCE_VERSION
       - pip install sagemaker tensorflow
       - python train_local.py --entry_point $ENTRY_POINT --src_dir $SOURCE_DIR --input_s3 $INPUT_PATH --repo $CODEBUILD_SOURCE_REPO_URL --version $CODEBUILD_RESOLVED_SOURCE_VERSION
