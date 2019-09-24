@@ -28,4 +28,4 @@ phases:
 
   build:
     commands:
-      - aws sagemaker create-training-job --training-job-name $JOB_NAME --algorithm-specification TrainingImage=$IMAGE,TrainingInputMode=File" --role-arn $ROLE_ARN --output-data-config S3OutputPath=$OUTPUT_PATH --resource-config  InstanceCount=1,InstanceType="ml.m4.xlarge",VolumeSizeInGB=20 --stopping-condition
+      - aws sagemaker create-training-job --training-job-name $JOB_NAME --algorithm-specification TrainingImage=$IMAGE,TrainingInputMode="File" --role-arn $ROLE_ARN --output-data-config S3OutputPath=$OUTPUT_PATH --resource-config  InstanceCount=1,InstanceType="ml.m4.xlarge",VolumeSizeInGB=20 --stopping-condition
