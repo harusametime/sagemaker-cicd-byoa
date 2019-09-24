@@ -30,7 +30,7 @@ if __name__ == '__main__':
                                  training_steps=100,
                                  evaluation_steps=10,
                                  train_instance_count=1,
-                                 metric_definitions=[{'Name': 'loss', 'Regex': 'loss = ([0-9\\.]+)'}
+                                 metric_definitions=[{'Name': 'loss', 'Regex': 'loss = ([0-9\\.]+)'}],
                                  tags=[{"code_url": code_url}],
                                  train_instance_type='ml.m4.xlarge')
 
