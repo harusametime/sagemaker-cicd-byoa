@@ -2,6 +2,8 @@ import sagemaker
 from sagemaker import get_execution_role
 import argparse
 
+## test
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='training script')
     parser.add_argument('--entry_point', type=str)
