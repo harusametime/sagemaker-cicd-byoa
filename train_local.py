@@ -24,5 +24,4 @@ if __name__ == '__main__':
                                  evaluation_steps=10,
                                  train_instance_count=1,
                                  train_instance_type='local')
-
     mnist_estimator.fit(inputs)
