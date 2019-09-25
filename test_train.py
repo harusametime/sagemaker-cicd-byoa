@@ -2,6 +2,8 @@ import sagemaker
 from sagemaker import get_execution_role
 import argparse
 
+#aaa
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='training script')
