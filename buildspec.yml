@@ -6,9 +6,8 @@ env:
     REPO_NAME: "https://github.com/harusametime/sagemaker-cicd-byoa"
     ENTRY_POINT: "mnist.py"
     SOURCE_DIR: "src"
-    INPUT_PATH: "s3://sagemaker-us-west-2-373011628954/data/DEMO-mnist"
-    # ROLE_ARN: "arn:aws:iam::373011628954:role/sagemakerfull"
-    OUTPUT_PATH: "s3://sagemaker-us-west-2-373011628954/codebuild/tensorflow"
+    INPUT_PATH: "s3://sagemaker-cicd-harusame/data/DEMO-mnist"
+    OUTPUT_PATH: "s3://sagemaker-cicd-harusame/codebuild/tensorflow"
     # FRAMEWORK_VERSION: '1.13.1'
     # CPU_FRAMEWORK_BINARY: 'https://s3-us-west-2.amazonaws.com/tensorflow-aws/1.13/AmazonLinux/cpu/latest-patch-latest-patch/tensorflow-1.13.1-cp36-cp36m-linux_x86_64.whl'
     # CPU_PY_VERSION: '3'
