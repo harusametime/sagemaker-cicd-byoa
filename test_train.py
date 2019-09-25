@@ -31,7 +31,7 @@ if __name__ == '__main__':
                                  training_steps=100,
                                  evaluation_steps=10,
                                  train_instance_count=1,
-                                 metric_definitions=[{'Name': 'loss', 'Regex': 'loss = ([0-9\\.]+)'}],
+                                 metric_definitions=[{'Name': 'accuracy', 'Regex': 'accuracy = ([0-9\\.]+)'}],
                                  tags=[
                                     {"Key": "code_url", "Value": code_url},
                                     {"Key": "training_task", "Value": "mnist-tensorflow"},
