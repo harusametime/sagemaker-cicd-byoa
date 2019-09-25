@@ -31,10 +31,10 @@ if __name__ == '__main__':
                                  evaluation_steps=10,
                                  train_instance_count=1,
                                  metric_definitions=[{'Name': 'loss', 'Regex': 'loss = ([0-9\\.]+)'}],
-                                 tags=[{
-                                        "Key": "code_url",
-                                        "Value": code_url
-                                        }],
+                                 tags=[
+                                    {"Key": "code_url", "Value": code_url},
+                                    {"Key": "training_task", "Value": "mnist-tensorflow"},
+                                    ],
                                  train_instance_type='ml.m4.xlarge')
 
     mnist_estimator.fit(inputs)
