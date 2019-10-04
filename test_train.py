@@ -2,7 +2,7 @@ import sagemaker
 from sagemaker import get_execution_role
 import argparse
 
-
+# dummy line
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='training script')
